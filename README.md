@@ -1,2 +1,13 @@
-# Unity-IL-Runtime-Injection-Demo
-Dynamic runtime .NET IL (Intermediate Language) opcode injection demo using C# and HarmonyLib. Reverse-engineered a Unity game assembly via dnSpy without source code, analyzed stack balance, and injected a frame-based timer loop to dynamically generate custom game mechanics. Ideal for legacy C# code recovery and binary patching.
+# Unity IL Runtime Injection Demo (Harmony Transpiler)
+
+## Overview
+This repository demonstrates dynamic runtime modification of .NET Intermediate Language (IL) opcodes without access to original source code. 
+
+## Technical Implementation
+* **Reverse Engineering:** Analyzed target game assembly (`Assembly-CSharp.dll`) using **dnSpy** to inspect class structures and method execution flows.
+* **Stack Balance & Opcode Injection:** Built a Harmony Transpiler patch targeting `JUnitAvatar::Update`. Injected a frame-based timer loop via `UnityEngine.Time.get_frameCount()` to dynamically generate a custom MP regeneration mechanism (`mp + 1` every 22 frames) while preserving evaluation stack integrity.
+
+## Tech Stack
+* **Language:** C# / .NET
+* **Tools & Libraries:** HarmonyLib, dnSpy, CIL (Common Intermediate Language)
+* **Use Cases:** Legacy .NET code recovery, binary patching, and runtime security analysis.
